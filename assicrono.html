@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <button>Executar</button>
+        <script>
+            let count = 0   
+            function testPromise (){
+                const promiseCount  = ++count
+                console.log("sync starte")
+                new Promise ((resolve, reject) => {
+                    setTimeout(() => {
+                    if (promiseCount % 2 == 0){
+                        resolve(promiseCount)
+                    } else {
+                        reject(promiseCount)
+                    }    
+                }, 3000)
+                })
+                .then((value) =>{
+                    console.log(`Promise finisch ${value}`)
+                })
+                .catch(() => {
+                    console.error("sync Error")
+                })
+                     
+                console.log("sync funisch")
+            }
+
+            const buttonEl = document.querySelector("button")
+            buttonEl.addEventListener("click",testPromise)
+
+
+        </script>
+    </body>
+</html>

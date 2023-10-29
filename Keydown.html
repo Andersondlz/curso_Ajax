@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <input type="text"/>
+        <script>
+            const inputEL = document.querySelector("input[type=text]")
+            inputEL.addEventListener("keydown",(event) => {
+                console.log("Event", `${event.key} - ${event.keyCode}`)
+                if (event.keyCode === 13) {
+                    alert(`Tecla Enter pressionada - ${inputEL.value}`)
+                }
+            })
+        </script>   
+    </body>
+</html>

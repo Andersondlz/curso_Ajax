@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <style>
+            .ligarLuz {
+                color: green;
+                background-color: aqua;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="title">Titulo da Pagina</h1>
+        <button id="change-class">Alterar Cor</button>
+        <script>
+            const titleEl = document.querySelector("#title")
+            const buttonEl = document.querySelector("#change-class")
+            buttonEl.addEventListener("click", () => {
+                if (titleEl.classList.contains("ligarLuz")) {
+                    titleEl.classList.remove("ligarLuz")
+                } else{
+                    titleEl.classList.add("ligarLuz")
+                }
+                alert("Cor Alterada com sucesso")
+            })  
+        
+        </script>   
+    </body>
+</html>

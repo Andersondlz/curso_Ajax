@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <button>Recuperar Data</button>
+        <br/>
+        <br/>
+        <script>
+            const loadData = () => {
+                const xhr = new XMLHttpRequest()
+
+                xhr.open("GET","https://api.github.com/users/Andersondlz" )
+                xhr.send(null)
+                xhr.onreadystatechange = () => {
+                    if (xhr.readyState === 4){
+                        const res = JSON.parse(xhr.responseText)
+                        const name = res.name
+                        const avatarURL = res.avatar_url
+                        const followers = res.followers
+                        const blogUrl = res.blog
+
+                        const elAvatar = document.createElement("img")
+                        elAvatar.setAttribute("width", "128")
+                        elAvatar.setAttribute("src", avatarURL )
+                        console.log(elAvatar)
+
+                        const elNome = document.createElement("h1")
+                        elNome.innerText = name
+
+                        const ElFollowers = document.createElement("p")
+                        ElFollowers.innerText = `Followers ${followers} `
+
+                        const ElBlog = document.createElement("a")
+                        ElBlog.setAttribute("href", `http://${blogUrl}`)
+                        ElBlog.innerText = blogUrl
+
+                        document.body.appendChild(elAvatar)
+                        document.body.appendChild(elNome)
+                        document.body.appendChild(ElFollowers)
+                        document.body.appendChild(ElBlog)
+
+                    }
+                }
+            }            
+            const buttonEl = document.querySelector("button")
+            buttonEl.addEventListener("click", loadData)     
+            
+
+        </script>
+    </body>
+</html>

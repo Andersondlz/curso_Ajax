@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script>
+            const pessoa = {
+                nome: "Anderson da Luz",
+                anos: 42,
+                data: new Date('2023-01-11'),
+                endereço: {
+                    rua: "Rua Teresina",
+                    numero: 488,
+                    cidade: "Indaial",
+                    estado: "SC",
+                }
+            }
+         console.log(pessoa)   
+         console.log(typeof pessoa)
+
+         const pessoaString = JSON.stringify(pessoa)
+         console.log(pessoaString)
+         console.log(typeof pessoaString)
+
+         const pessoaObjet = JSON.parse(pessoaString)
+         console.log(pessoaObjet)
+        </script>
+    </body>
+</html>
